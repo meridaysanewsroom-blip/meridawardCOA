@@ -297,6 +297,16 @@ body{
 .chip[data-type="Spiritual"].active{ background: var(--gold-dark); }
 .chip[data-type="Family History"].active{ background: var(--family); }
 
+.sync-status{
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+.sync-status.warn{ color: var(--physical); opacity: 1; }
+#leaderBtn.active{ background: var(--void); color: var(--starlight); border-color: var(--void); }
+
 /* ============================================================
    EMPTY STATE
    ============================================================ */
@@ -671,7 +681,7 @@ footer{
   <div class="starfield" aria-hidden="true"></div>
   <div class="halo" aria-hidden="true"></div>
   <div class="masthead-inner">
-    <p class="eyebrow">Gathering in Christ &middot; Merida Ward YSA</p>
+    <p class="eyebrow">Gathering in Christ &middot; Ormoc Stake YSA</p>
     <h1>The Activity Calendar</h1>
     <p class="subtitle">Every gathering, under one light.</p>
   </div>
@@ -679,8 +689,8 @@ footer{
 
 <main class="wrap">
 
-  <!-- FORM -->
-  <section class="card form-card no-print" id="formCard">
+  <!-- FORM (leaders only — hidden until "Leader access" is unlocked) -->
+  <section class="card form-card no-print" id="formCard" hidden>
     <div class="card-tab" id="formTab">New Entry</div>
     <h2 id="formTitle">Add an Activity</h2>
     <form id="activityForm" novalidate>
@@ -739,6 +749,12 @@ footer{
       </div>
 
       <div class="filter-chips" id="filterChips"></div>
+
+      <span class="sync-status" id="syncStatus">Connecting…</span>
+      <button class="btn btn-ghost" id="refreshBtn" title="Refresh now">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </button>
+      <button class="btn btn-outline" id="leaderBtn">Leader access</button>
 
       <button class="btn btn-outline" id="printBtn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
